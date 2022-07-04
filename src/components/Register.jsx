@@ -51,11 +51,10 @@ function Register() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(REGISTER_URL, {
+      await axios.post(REGISTER_URL, {
         email: email,
         password: pwd,
       });
-      console.log('register response: ', response);
       setSuccess(true);
     } catch (err) {
       if (!err?.response) {

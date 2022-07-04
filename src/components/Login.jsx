@@ -2,7 +2,7 @@ import { useRef, useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-import AuthContext from './context/AuthProvider';
+import AuthContext from '../context/AuthProvider';
 
 const LOGIN_URL = 'https://reqres.in/api/login';
 
@@ -45,11 +45,10 @@ function Login() {
       } else if (err.response?.status === 400) {
         setErrMsg(`Ошибка: ${err.response.data.error}`);
       } else if (err.response?.status === 401) {
-        setErrMsg('Unauthorized');
+        setErrMsg('Отказ в доступе');
       } else {
         setErrMsg('Ошибка авторизации!');
       }
-
       errRef.current.focus();
     }
   };
